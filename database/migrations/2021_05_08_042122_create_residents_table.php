@@ -21,10 +21,12 @@ class CreateResidentsTable extends Migration
             $table->string('lastname');
             $table->string('address');
             $table->bigInteger('contact');
+            $table->date('birthdate');
             $table->integer('age');
             $table->string('gender');
             $table->string('voter');
             $table->string('senior');
+            $table->string('dap');
             $table->timestamps(); 
            });
     }

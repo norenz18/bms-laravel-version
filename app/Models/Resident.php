@@ -14,10 +14,12 @@ class Resident extends Model
         'lastname',
         'address',
         'contact',
+        'birthdate',
         'age',
         'gender',
         'voter',
         'senior',
+        'dap',
         
     ];
 }

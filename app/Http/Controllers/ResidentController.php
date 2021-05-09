@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Resident;
+use Illuminate\Support\Facades\Redirect;
 
 class ResidentController extends Controller
 {
@@ -61,9 +62,9 @@ class ResidentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit($id)
+    public function edit(Resident $resident)
     {
-        //
+        return view('residents.edit', compact('resident'));
     }
 
     /**
@@ -73,9 +74,10 @@ class ResidentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, $id)
+    public function update(Request $request, Resident $resident)
     {
-        //
+       $resident->update($request->all());
+       return Redirect(route('residents.index'));
     }
 
     /**
@@ -87,7 +89,6 @@ class ResidentController extends Controller
     public function destroy(Resident $resident)
     {
         $resident->delete();
-
         return Redirect(route('residents.index'));
     }
 }
