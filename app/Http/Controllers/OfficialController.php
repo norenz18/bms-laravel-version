@@ -2,11 +2,11 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Official;
 use Illuminate\Http\Request;
-use App\Models\Resident;
 use Illuminate\Support\Facades\Redirect;
 
-class ResidentController extends Controller
+class OfficialController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -15,12 +15,7 @@ class ResidentController extends Controller
      */
     public function index()
     {
-        $data['residents'] = Resident::orderBy('id', 'DESC')->get();
-        // dd($data);
-        return view('residents.index', $data);
-        // $collection = collect($data);
-        // $collection->count();
-       
+        //
     }
 
     /**
@@ -30,7 +25,7 @@ class ResidentController extends Controller
      */
     public function create()
     {
-        return view('residents.create');
+        //
     }
 
     /**
@@ -41,9 +36,7 @@ class ResidentController extends Controller
      */
     public function store(Request $request)
     {
-        Resident::create($request->all());
-        return Redirect(route('residents.index'));
-        // dd($request->all());
+        //
     }
 
     /**
@@ -52,11 +45,9 @@ class ResidentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show(Resident $resident)
+    public function show(Official $official)
     {
-        // $resident = Resident::findOrFail($id);
-        return view('residents.show', compact('resident'));
-        // var_dump($resident);
+        //
     }
 
     /**
@@ -65,9 +56,9 @@ class ResidentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function edit(Resident $resident)
+    public function edit(Official $official)
     {
-        return view('residents.edit', compact('resident'));
+        //
     }
 
     /**
@@ -77,10 +68,9 @@ class ResidentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Resident $resident)
+    public function update(Request $request, Official $official)
     {
-       $resident->update($request->all());
-       return Redirect(route('residents.index'));
+        //
     }
 
     /**
@@ -89,9 +79,8 @@ class ResidentController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Resident $resident)
+    public function destroy(Official $official)
     {
-        $resident->delete();
-        return Redirect(route('residents.index'));
+        //
     }
 }

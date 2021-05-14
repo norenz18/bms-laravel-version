@@ -12,9 +12,9 @@
             <h1>Resident Image</h1>
         </div>
 
-        <div class="container col-sm-6 d-flex justify-content-evenly">
+        <div class="container  col-sm-6 d-flex justify-content-evenly">
 
-                <ul class="col-sm-5">   
+                <ul class="list-unstyled col-sm-5">   
                     <li><span>Firstname:</span></li>
                     <li><span>Middlename:</span></li>
                     <li><span>Lastname:</span></li>
@@ -28,7 +28,7 @@
                     <li><span>Differently Abled Person:</span></li>
                 </ul>  
 
-                <ul class="col-sm-7 text-uppercase">   
+                <ul class="list-unstyled col-sm-7 text-uppercase">   
                     <li>{{ $resident->firstname }}</li>
                     <li>{{ $resident->middlename}}</li>
                     <li>{{ $resident->lastname }}</li>

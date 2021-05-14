@@ -22,4 +22,5 @@ class Resident extends Model
         'dap',
         
     ];
+
 }

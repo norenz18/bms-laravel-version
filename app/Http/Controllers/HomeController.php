@@ -1,9 +1,8 @@
 <?php
 
 namespace App\Http\Controllers;
-
 use Illuminate\Http\Request;
-
+use DB;
 class HomeController extends Controller
 {
     /**
@@ -23,6 +22,9 @@ class HomeController extends Controller
      */
     public function index()
     {
+       
+        // $resident = DB::table('residents')->count();
+        // return view('homes.home', compact('residents'));
         return view('homes.home');
     }
 }

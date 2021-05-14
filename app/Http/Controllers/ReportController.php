@@ -2,12 +2,17 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Report;
 use Illuminate\Http\Request;
-use App\Models\Resident;
 use Illuminate\Support\Facades\Redirect;
 
-class ResidentController extends Controller
+class ReportController extends Controller
 {
+
+    // public function __construct()
+    // {
+        
+    // }
     /**
      * Display a listing of the resource.
      *
@@ -15,12 +20,10 @@ class ResidentController extends Controller
      */
     public function index()
     {
-        $data['residents'] = Resident::orderBy('id', 'DESC')->get();
-        // dd($data);
-        return view('residents.index', $data);
-        // $collection = collect($data);
-        // $collection->count();
-       
+        $data['reports'] = Report::orderBy('created_at', 'DESC')->get();
+        // $sort = $data['reports']->sortByDesc('id');
+        // // dd($sort);
+        return view('reports.index',$data);
     }
 
     /**
@@ -30,7 +33,7 @@ class ResidentController extends Controller
      */
     public function create()
     {
-        return view('residents.create');
+        //
     }
 
     /**
@@ -41,57 +44,55 @@ class ResidentController extends Controller
      */
     public function store(Request $request)
     {
-        Resident::create($request->all());
-        return Redirect(route('residents.index'));
-        // dd($request->all());
+       Report::create($request->all());
+       return Redirect(route('reports.index'));
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function show(Resident $resident)
+    public function show(Report $report)
     {
-        // $resident = Resident::findOrFail($id);
-        return view('residents.show', compact('resident'));
-        // var_dump($resident);
+        return view('reports.show', compact('report'));
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  int  $id
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function edit(Resident $resident)
+    public function edit(Report $report)
     {
-        return view('residents.edit', compact('resident'));
+        return view('reports.edit', compact('report'));
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Resident $resident)
+    public function update(Request $request, Report $report)
     {
-       $resident->update($request->all());
-       return Redirect(route('residents.index'));
+        $report->update($request->all());
+        return Redirect(route('reports.index'));
+
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  int  $id
+     * @param  \App\Models\Report  $report
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Resident $resident)
+    public function destroy(Report $report)
     {
-        $resident->delete();
-        return Redirect(route('residents.index'));
+        $report->delete();
+        return Redirect(route('reports.index'));
     }
 }

@@ -8,12 +8,24 @@
     <meta name="csrf-token" content="{{ csrf_token() }}">
 
     <title> Brgy. 763 Zone 83 | Laravel</title>
+    
 
     {{-- icon --}}
     <link rel="icon" href="/img/brgy-logo800.png" type="images/gif" sizes="32x32">
 
-   <link rel="stylesheet" href="//cdn.datatables.net/1.10.24/css/jquery.dataTables.min.css">
-    <!-- Scripts -->
+    {{-- for feature rich table --}}
+    <link rel="stylesheet" href="bootstrap-table/dist/bootstrap-table.min.css" >
+    {{-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/4.3.1/css/bootstrap-table.min.css" > --}}
+  
+    {{-- fontawesome --}}
+    <script src="https://use.fontawesome.com/cd3d49e6a0.js"></script>  <!-- need internet -->
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="bootstrap-table/dist/bootstrap-table.min.js"></script>
+    {{-- <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/4.3.1/css/bootstrap-table.min.js"></script> --}}
+   
+
+    {{-- public --}}
     <script src="{{ asset('js/app.js') }}" defer></script>
 
     <!-- Fonts -->
@@ -81,9 +93,26 @@
             </div>
         </nav>
 
-        <main class="py-4">
+        <main class="py-4">  
             @yield('content')
         </main>
     </div>
+
+    
 </body>
 </html>
+
+{{-- <div class="container-fluid d-flex justify-content-evenly mt-5">
+    <aside>
+        <ul class="sidebar ml-0 mr-5">
+            <li><a href="/home">Home</a> </li>
+            <li><a href="/residents">Residents</a> </li>
+            <li><a href="/reports">Reports</a> </li>
+            <li><a href="">Blotter</a> </li>
+            <li><a href="">Certificates</a> </li>
+            <li><a href="/officials">Officials</a> </li>
+        </ul>
+    </aside>
+
+    
+</div> --}}
