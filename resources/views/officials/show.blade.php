@@ -3,8 +3,11 @@
 @section('content')
 
 <section>
+   
     <div class="container d-flex justify-content-around mt-5">
 
+       
+       
         <div class="col-sm-6 text-center">
             <h1>Resident Image</h1>
         </div>
@@ -12,40 +15,26 @@
         <div class="container  col-sm-6 d-flex justify-content-evenly">
 
                 <ul class="list-unstyled col-sm-5">   
-                    <li><span>Firstname:</span></li>
-                    <li><span>Middlename:</span></li>
-                    <li><span>Lastname:</span></li>
-                    <li><span>Address:</span></li>
-                    <li><span>Contact:</span></li>
-                    <li><span>Birthdate:</span></li>
-                    <li><span>Age:</span></li>
-                    <li><span>Gender:</span></li>
-                    <li><span>Civil Status:</span></li>
-                    <li><span>Voter Status:</span></li>
-                    <li><span>Senior Citizen:</span></li>
-                    <li><span>Differently Abled Person:</span></li>
+                    <li><span>Rank:</span></li>
+                    <li><span>Fullname:</span></li>
+                    <li><span>Position:</span></li>
+                    <li><span>Chairmanship:</span></li>
+                   
                 </ul>  
 
                 <ul class="list-unstyled col-sm-7 text-uppercase">   
-                    <li>{{ $resident->firstname }}</li>
-                    <li>{{ $resident->middlename}}</li>
-                    <li>{{ $resident->lastname }}</li>
-                    <li>{{ $resident->address }}</li>
-                    <li>{{ $resident->contact }}</li>
-                    <li>{{ $resident->birthdate }}</li>
-                    <li>{{ $resident->age }}</li>
-                    <li>{{ $resident->gender }}</li>
-                    <li>{{ $resident->civil }}</li>
-                    <li>{{ $resident->voter }}</li>
-                    <li>{{ $resident->senior }}</li>
-                    <li>{{ $resident->dap }}</li>
+                    <li>{{ $official->rank }}</li>
+                    <li>{{ $official->fullname}}</li>
+                    <li>{{ $official->position }}</li>
+                    <li>{{ $official->chairmanship }}</li>
+               
                 </ul>  
         </div>
     </div>
 
     <div class="container d-flex justify-content-center mt-5 text-center">
-        <a class="btn btn-secondary btn-sm mr-3" href="{{ route('residents.index')}}">Back</a>
-        <a class="btn btn-primary btn-sm mr-3" href="{{ route('residents.edit', $resident->id)}}"><i class="fa fa-edit"></i> Edit Resident</a>
+        <a class="btn btn-secondary btn-sm mr-3" href="{{ route('officials.index')}}">Back</a>
+        <a class="btn btn-primary btn-sm mr-3" href="{{ route('officials.edit', $official->id)}}"><i class="fa fa-edit"></i> Edit Resident</a>
         
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
@@ -69,7 +58,7 @@
                 </div>
                 <div class="modal-footer">
                 <button type="button" class="btn btn-secondary btn-sm" data-dismiss="modal">Cancel</button>
-                <form action="{{ route('residents.destroy', $resident->id)}}" method="post">
+                <form action="{{ route('officials.destroy', $official->id)}}" method="post">
                     @method('DELETE')
                     @csrf
                     <button type="submit" class="btn btn-danger btn-sm">Delete</button>

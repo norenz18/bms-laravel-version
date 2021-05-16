@@ -2,18 +2,11 @@
 
 namespace App\Http\Controllers;
 
-
-use App\Models\Report;
+use App\Models\Blotter;
 use Illuminate\Http\Request;
-use Illuminate\Support\Facades\Redirect;
 
-class ReportController extends Controller
+class BlotterController extends Controller
 {
-
-    // public function __construct()
-    // {
-    //     $this->middleware('auth');
-    // }
     /**
      * Display a listing of the resource.
      *
@@ -21,8 +14,7 @@ class ReportController extends Controller
      */
     public function index()
     {
-        $data['reports'] = Report::orderBy('created_at', 'DESC')->get();
-        return view('reports.index',$data);
+        return view('blotters.index');   
     }
 
     /**
@@ -43,55 +35,51 @@ class ReportController extends Controller
      */
     public function store(Request $request)
     {
-        Report::create($request->all());
-        return Redirect(route('reports.index'));
+        //
     }
 
     /**
      * Display the specified resource.
      *
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Blotter  $blotter
      * @return \Illuminate\Http\Response
      */
-    public function show(Report $report)
+    public function show(Blotter $blotter)
     {
-        return view('reports.show', compact('report'));
+        //
     }
 
     /**
      * Show the form for editing the specified resource.
      *
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Blotter  $blotter
      * @return \Illuminate\Http\Response
      */
-    public function edit(Report $report)
+    public function edit(Blotter $blotter)
     {
-        return view('reports.edit', compact('report'));
+        //
     }
 
     /**
      * Update the specified resource in storage.
      *
      * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Blotter  $blotter
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Report $report)
+    public function update(Request $request, Blotter $blotter)
     {
-        $report->update($request->all());
-        return Redirect(route('reports.index'));
-
+        //
     }
 
     /**
      * Remove the specified resource from storage.
      *
-     * @param  \App\Models\Report  $report
+     * @param  \App\Models\Blotter  $blotter
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Report $report)
+    public function destroy(Blotter $blotter)
     {
-        $report->delete();
-        return Redirect(route('reports.index'));
+        //
     }
 }

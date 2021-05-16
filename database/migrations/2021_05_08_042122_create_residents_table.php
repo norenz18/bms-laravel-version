@@ -24,6 +24,7 @@ class CreateResidentsTable extends Migration
             $table->date('birthdate');
             $table->integer('age');
             $table->string('gender');
+            $table->string('civil');
             $table->string('voter');
             $table->string('senior');
             $table->string('dap');

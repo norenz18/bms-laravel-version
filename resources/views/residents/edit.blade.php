@@ -50,6 +50,17 @@
                     <option value="female">Female</option>
                 </select>
             </div>
+            <div class="form-group col-sm-2">
+                <label for="">Civil Status</label>
+                <select class="form-control" name="civil" id="" required>
+                    <option>{{ $resident->civil}}</option>
+                    <option value=""></option>
+                    <option value="Single">Single</option>
+                    <option value="Married">Married</option>
+                    <option value="Solo Parent">Solo Parent</option>
+                    <option value="Widowed">Widowed</option>
+                </select>
+            </div>
             <div class="form-group col-sm-3">
                 <label for="">Voter Status</label>
                 <select class="form-control" name="voter" id="" required>

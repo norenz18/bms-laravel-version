@@ -15,12 +15,9 @@ class ResidentController extends Controller
      */
     public function index()
     {
+
         $data['residents'] = Resident::orderBy('id', 'DESC')->get();
-        // dd($data);
         return view('residents.index', $data);
-        // $collection = collect($data);
-        // $collection->count();
-       
     }
 
     /**
@@ -30,7 +27,7 @@ class ResidentController extends Controller
      */
     public function create()
     {
-        return view('residents.create');
+        
     }
 
     /**

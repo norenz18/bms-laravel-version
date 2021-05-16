@@ -1,11 +1,14 @@
 <?php
 
-use Illuminate\Support\Facades\Route;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Route;
 
-use App\Http\Controllers\DashboardController;
-use App\Http\Controllers\ResidentController;
+use App\Http\Controllers\HomeController;
 use App\Http\Controllers\ReportController;
+use App\Http\Controllers\BlotterController;
+use App\Http\Controllers\OfficialController;
+use App\Http\Controllers\ResidentController;
+use App\Http\Controllers\DashboardController;
 
 /*
 |--------------------------------------------------------------------------
@@ -24,10 +27,10 @@ Route::get('/', [DashboardController::class, 'index']);
 
 // Route::get('/residents', [ResidentController::class, 'index']);
 // Route::get('/residents/create', [ResidentController::class, 'create']);
-Route::resource('residents', ResidentController::class)->middleware('auth');
-Route::resource('reports', ReportController::class)->middleware('auth');
-
-Route::resource('officials', ReportController::class);
+Route::resource('/residents', ResidentController::class)->middleware('auth');
+Route::resource('/reports', ReportController::class)->middleware('auth');
+Route::resource('/officials', OfficialController::class)->middleware('auth');
+Route::resource('/blotters', BlotterController::class)->middleware('auth');
 
 Auth::routes();
 

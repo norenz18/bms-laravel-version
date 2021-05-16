@@ -8,6 +8,12 @@ use Illuminate\Support\Facades\Redirect;
 
 class OfficialController extends Controller
 {
+
+    // public function __construct()
+    // {
+    //     $this->middleware('auth');
+    // }
+
     /**
      * Display a listing of the resource.
      *
@@ -15,7 +21,8 @@ class OfficialController extends Controller
      */
     public function index()
     {
-        //
+        $data['officials'] = Official::orderBy('rank', 'ASC')->get();
+        return view('officials.index', $data);
     }
 
     /**
@@ -36,7 +43,9 @@ class OfficialController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Official::create($request->all());
+        // dd($request);
+        return Redirect(route('officials.index'));
     }
 
     /**
@@ -47,7 +56,7 @@ class OfficialController extends Controller
      */
     public function show(Official $official)
     {
-        //
+        return view('officials.show', compact('official'));
     }
 
     /**
@@ -58,7 +67,7 @@ class OfficialController extends Controller
      */
     public function edit(Official $official)
     {
-        //
+        return view('officials.edit', compact('official'));
     }
 
     /**
@@ -70,7 +79,9 @@ class OfficialController extends Controller
      */
     public function update(Request $request, Official $official)
     {
-        //
+        $official->update($request->all());
+        // dd($official);
+        return Redirect(route('officials.index'));
     }
 
     /**
@@ -81,6 +92,7 @@ class OfficialController extends Controller
      */
     public function destroy(Official $official)
     {
-        //
+        $official->delete();
+        return Redirect(route('officials.index'));
     }
 }

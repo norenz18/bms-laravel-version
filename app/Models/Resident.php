@@ -17,6 +17,7 @@ class Resident extends Model
         'birthdate',
         'age',
         'gender',
+        'civil',
         'voter',
         'senior',
         'dap',
