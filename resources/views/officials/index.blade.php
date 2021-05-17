@@ -1,7 +1,22 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container-fluid d-flex justify-content-evenly p-0">
 
+    <div class="col-lg-2 bg-info border-right">
+        <ul class="list-unstyled font-weight-bold flex-lg-column ">
+            <img src="img/brgy-logo800.png" alt="brgylogo" class="ml-3 mt-5 mb-5" style="height: 150px; width: 150px"> 
+            <li class="h5 pb-5"><a href="{{ route('home') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-home"></i> Home</a></li>
+            <li class="h5 pb-5"><a href="{{ route('residents.index') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-users"></i> Residents</a> </li>
+            <li class="h5 pb-5"><a href="{{ route('reports.index') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-sticky-note"></i> Reports</a> </li>
+            <li class="h5 pb-5"><a href="{{ route('blotters.index') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-book"></i> Blotters</a> </li>
+            <li class="h5 pb-5"><a href="#" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-folder-open"></i> Certificates</a> </li>
+            <li class="h5 pb-5"><a href="{{ route('officials.index') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-user"></i> Officials</a> </li>
+        </ul>
+    </div>
+    
+
+    <div class="col-lg-10 bg-light">
         <h1 class="text-center text-success font-weight-bold mt-5">BRGY. OFFICIALS</h1>
 
         {{-- <a href="{{ route('residents.create')}}" class="btn btn-secondary mb-3">CREATE</a> --}}
@@ -123,6 +138,8 @@
                         </tr>
                     @endforeach
                 </tbody>
-            </table>  
+            </table>
+        </div>
+    </div>
 @endsection
 

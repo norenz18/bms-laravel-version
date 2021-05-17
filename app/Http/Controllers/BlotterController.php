@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Blotter;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Redirect;
 
 class BlotterController extends Controller
 {
@@ -14,7 +15,8 @@ class BlotterController extends Controller
      */
     public function index()
     {
-        return view('blotters.index');   
+        $data['blotters'] = Blotter::orderBy('id', 'DESC')->get();
+        return view('blotters.index', $data);
     }
 
     /**
@@ -35,7 +37,8 @@ class BlotterController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        Blotter::create($request->all());
+        return Redirect(route('blotters.index'));
     }
 
     /**
@@ -46,7 +49,7 @@ class BlotterController extends Controller
      */
     public function show(Blotter $blotter)
     {
-        //
+        return view('blotters.show', compact('blotter'));
     }
 
     /**
@@ -57,7 +60,9 @@ class BlotterController extends Controller
      */
     public function edit(Blotter $blotter)
     {
-        //
+        // dd($blotter);
+        return view('blotters.edit', compact('blotter'));
+
     }
 
     /**
@@ -69,7 +74,9 @@ class BlotterController extends Controller
      */
     public function update(Request $request, Blotter $blotter)
     {
-        //
+        $blotter->update($request->all());
+        return Redirect(route('blotters.index'));
+
     }
 
     /**

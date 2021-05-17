@@ -38,6 +38,7 @@ class ResidentController extends Controller
      */
     public function store(Request $request)
     {
+        
         Resident::create($request->all());
         return Redirect(route('residents.index'));
         // dd($request->all());
@@ -53,7 +54,7 @@ class ResidentController extends Controller
     {
         // $resident = Resident::findOrFail($id);
         return view('residents.show', compact('resident'));
-        // var_dump($resident);
+        
     }
 
     /**

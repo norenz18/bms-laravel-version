@@ -1,18 +1,34 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="container-fluid d-flex justify-content-evenly p-0">
+
+    <div class="col-lg-2 bg-info border-right">
+        <ul class="list-unstyled font-weight-bold flex-lg-column ">
+            <img src="img/brgy-logo800.png" alt="brgylogo" class="ml-3 mt-5 mb-5" style="height: 150px; width: 150px"> 
+            <li class="h5 pb-5"><a href="{{ route('home') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-home"></i> Home</a></li>
+            <li class="h5 pb-5"><a href="{{ route('residents.index') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-users"></i> Residents</a> </li>
+            <li class="h5 pb-5"><a href="{{ route('reports.index') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-sticky-note"></i> Reports</a> </li>
+            <li class="h5 pb-5"><a href="{{ route('blotters.index') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-book"></i> Blotters</a> </li>
+            <li class="h5 pb-5"><a href="#" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-folder-open"></i> Certificates</a> </li>
+            <li class="h5 pb-5"><a href="{{ route('officials.index') }}" class="text-dark text-decoration-none font-weight-bold"><i class="fa fa-user"></i> Officials</a> </li>
+        </ul>
+    </div>
+    
+
+    <div class="col-lg-10 bg-light">
 
             <h1 class="text-center text-primary font-weight-bold mt-5">BLOTTER</h1>
                         
                     
             {{-- <a href="{{ route('residents.create')}}" class="btn btn-secondary mb-3">CREATE</a> --}}
-            <button type="button" href="" class="btn btn-secondary mb-3" data-toggle="modal" data-target=".bd-example-modal-xl">ADD RESIDENT</button>
+            <button type="button" href="" class="btn btn-secondary mb-3" data-toggle="modal" data-target=".bd-example-modal-xl">ADD BLOTTER</button>
     
             <div class="modal fade bd-example-modal-xl" data-backdrop="static" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" aria-hidden="true">
             <div class="modal-dialog modal-xl">
                 <div class="modal-content p-3">
                     <div class="modal-header mb-3">
-                        <h3 class="modal-title text-secondary" id="exampleModalLongTitle">ADD RESIDENT INFORMATION</h3>    
+                        <h3 class="modal-title text-secondary" id="exampleModalLongTitle">ADD BLOTTER RECORDS</h3>    
                     </div>
                     
                     <div class="container">
@@ -91,27 +107,31 @@
                         <th data-field="Complainant" data-sortable="true" scope="col">Complainant</th>
                         <th data-field="Dependant" data-sortable="true" scope="col">Dependant</th>
                         <th data-field="Date of Filing" data-sortable="true" scope="col">Date of Filing</th>
+                        <th data-field="Status" data-sortable="true" scope="col">Status</th>
                         <th data-field="Person in Charge" data-sortable="true" scope="col">Person in Charge</th>
                         <th scope="col">Actions</th>
     
                     </tr>
                     </thead>
                     <tbody class="text-capitalize text-center">
-                        {{-- @foreach ($residents as $resident) --}}
+                        @foreach ($blotters as $blotter)
                             <tr>        
-                                <td class="text-left"></td>
-                                <td class="text-left"></td>
-                                <td></td>
-                                <td></td>
-                                <td ></td>
+                                <td class="text-left">{{ $blotter->case }}</td>
+                                <td class="text-left">{{ $blotter->complainant }}</td>
+                                <td>{{ str_limit($blotter->dependant, 20) }}</td>
+                                <td>{{ $blotter->dateFile }}</td>
+                                <td>{{ $blotter->status }}</td>
+                                <td >{{ $blotter->inCharge }}</td>
                                 <td class="text-center">
-                                    <a class="btn btn-success btn-sm" href=""><i class="fa fa-eye"></i> View</a> 
-                                    <a class="btn btn-primary btn-sm" href=""><i class="fa fa-edit"></i> Edit</a>
+                                    <a class="btn btn-success btn-sm" href="{{ route('blotters.show', $blotter->id) }}"><i class="fa fa-eye"></i> View</a> 
+                                    <a class="btn btn-primary btn-sm" href="{{ route('blotters.edit', $blotter->id) }}"><i class="fa fa-edit"></i> Edit</a>
                                 </td>
                             </tr>
-                        {{-- @endforeach --}}
+                        @endforeach
                     </tbody>
                 </table>
+            </div>
+        </div>
 @endsection
 
 

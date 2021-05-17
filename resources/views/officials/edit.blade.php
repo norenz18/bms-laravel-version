@@ -4,9 +4,9 @@
 
 <div class="container">
     <form action="{{ route('officials.update', $official->id )}}" method="POST">
-        @csrf
         @method('PUT')
-       <div class="row">
+        @csrf
+        <div class="row">
             <div class="form-group  col-sm-10">
                 <label for="">Full Name</label>
                 <input type="text" class="form-control text-capitalize" name="fullname" id="" value="{{ $official->fullname }}" placeholder="Enter name" required>

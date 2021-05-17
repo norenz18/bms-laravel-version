@@ -32,6 +32,11 @@ class HomeController extends Controller
         $voters = DB::table('residents')->where('voter','yes')->count();
         $seniors = DB::table('residents')->where('senior','senior')->count();
         $daps = DB::table('residents')->where('dap','yes')->count();
-        return view('homes.index', compact('residents', 'voters', 'seniors', 'daps'));
+        $male = DB::table('residents')->where('gender','male')->count();
+        $female = DB::table('residents')->where('gender','female')->count();
+        $solo = DB::table('residents')->where('civil','solo parent')->count();
+        $pending = DB::table('blotters')->where('status','pending')->count();
+        return view('homes.index', compact('residents', 'voters', 'seniors', 'daps', 'male','female','solo', 'pending'));
     }
+    
 }
