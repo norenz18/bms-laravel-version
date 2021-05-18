@@ -87,6 +87,7 @@ class BlotterController extends Controller
      */
     public function destroy(Blotter $blotter)
     {
-        //
+        $blotter->delete();
+        return Redirect(route('blotters.index'));
     }
 }
