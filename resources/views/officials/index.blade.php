@@ -133,7 +133,7 @@
                             <td>{{ $official->chairmanship }}</td>
                             <td class="text-center">
                                 <a class="btn btn-success btn-sm" href="{{ route('officials.show', $official->id ) }}"> <i class="fa fa-eye"></i> View</a> 
-                                <a class="btn btn-primary btn-sm" href="{{ route('officials.edit', $official->id )}}">Edit</a>
+                                <a class="btn btn-primary btn-sm" href="{{ route('officials.edit', $official->id )}}"><i class="fa fa-edit"></i> Edit</a>
                             </td>
                         </tr>
                     @endforeach

@@ -22,7 +22,7 @@
 
     <div class="container d-flex justify-content-center mt-5 text-center">
         <a class="btn btn-secondary btn-sm mr-3" href="{{ route('reports.index')}}">Back</a>
-        <a class="btn btn-primary btn-sm mr-3" href="{{ route('reports.edit', $report->id)}}"><i class="fa fa-edit"></i> Edit Resident</a>
+        <a class="btn btn-primary btn-sm mr-3" href="{{ route('reports.edit', $report->id)}}"><i class="fa fa-edit"></i> Edit Report</a>
         
         <!-- Button trigger modal -->
         <button type="button" class="btn btn-danger btn-sm" data-toggle="modal" data-target="#exampleModalCenter">
@@ -34,7 +34,7 @@
             <div class="modal-dialog modal-dialog-centered" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                <h5 class="modal-title text-danger" id="exampleModalLongTitle">Deleting Resident</h5>
+                <h5 class="modal-title text-danger" id="exampleModalLongTitle">Deleting Report</h5>
                 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                 </button>

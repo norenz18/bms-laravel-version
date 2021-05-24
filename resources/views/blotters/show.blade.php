@@ -40,7 +40,7 @@
         </div>
     </div>
 
-    <div class="container d-flex justify-content-center text-center">
+    <div class="container d-flex justify-content-center mt-3 text-center">
         <a class="btn btn-secondary btn-sm mr-3" href="{{ route('blotters.index')}}">Back</a>
         <a class="btn btn-primary btn-sm mr-3" href="{{ route('blotters.edit', $blotter->id)}}"><i class="fa fa-edit"></i> Edit Blotter</a>
         

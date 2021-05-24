@@ -2,7 +2,9 @@
 
 @section('content')
 
-<div class="container">
+<div class="container justify-content-center p-0">
+
+    <h1 class="text-center text-primary font-weight-bold mt-5 mb-5">RESIDENT</h1>
     <form action="{{ route('residents.update', $resident->id)}}" method="POST">
         @method('PUT')
         @csrf
